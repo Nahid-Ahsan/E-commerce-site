@@ -42,21 +42,33 @@ class PlaceOrderAPIView(generics.CreateAPIView):
         return Response(serialized_data)
 
 
-# class TransactionReportCreateAPIView(generics.CreateAPIView):
-#     queryset = TransactionReport.objects.all()
-#     serializer_class = TransactionReportSerializer
 
-#     def create(self, request, *args, **kwargs):
-#         # Retrieve order and transaction data from the request
-#         order_id = request.data.get('order_id')
-#         transaction_details = request.data.get('transaction_details', 'No transaction details provided.')
+class ProductSearchAPIView(generics.ListAPIView):
+    serializer_class = ProductSerializer
 
-        # Create the transaction report
-        # transaction_report_data = {'order': order_id, 'transaction_details': transaction_details}
-        # transaction_report_serializer = TransactionReportSerializer(data=transaction_report_data)
-        # if transaction_report_serializer.is_valid():
-        #     transaction_report = transaction_report_serializer.save()
-        # else:
-        #     return Response(transaction_report_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def get_queryset(self):
+        search_query = self.request.query_params.get('search', '')
+        queryset = ProductList.objects.filter(name__icontains=search_query)
 
-#         return Response(TransactionReportSerializer(transaction_report).data, status=status.HTTP_201_CREATED)
+        return queryset
+
+
+
+class ProductFilterAPIView(generics.ListAPIView):
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        category__id = self.request.query_params.get('category', None)
+        # category_type = self.request.query_params.get('category_type', None)
+
+        queryset = ProductList.objects.all()
+
+        if category:
+            queryset = queryset.filter(category__id=category__id)
+
+        # if category_type:
+        #     queryset = queryset.filter(category__category_type=category_type)
+
+        return queryset
+
+

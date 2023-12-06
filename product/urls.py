@@ -6,6 +6,8 @@ urlpatterns = [
    path('products/', ProductListAPIView.as_view(), name='product_list'),
    path('create_order/', OrderCreateAPIView.as_view(), name='create_order'),
    path('place_order/', PlaceOrderAPIView.as_view(), name='place_order'),
+   path('search/', ProductSearchAPIView.as_view(), name='product-search'),
+   path('filter/', ProductFilterAPIView.as_view(), name='product-filter'),
    # path('transactions/', TransactionListAPIView.as_view(), name='transaction_list'),
 ]
 
@@ -49,3 +51,8 @@ urlpatterns = [
   
 #   ]
 # }
+
+
+# http://127.0.0.1:8000/search/  [GET]
+
+"napa"
