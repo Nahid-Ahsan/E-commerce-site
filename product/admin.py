@@ -4,9 +4,8 @@ from .models import *
 admin.site.register(CategoryType)
 admin.site.register(Category)
 admin.site.register(ProductList)
-admin.site.register(PlaceOrder)
-admin.site.register(Transaction)
 admin.site.register(PlaceOrder_Data)
+admin.site.register(Customer)
 
 class ProductListAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'price', 'image', 'description')

@@ -20,10 +20,13 @@ urlpatterns = [
 
 # {
 #   "products": [
-#     {"id": 1, "name": "Napa", "price": 10},
-#     {"id": 2, "name": "Lipstick", "price": 20}
+#     {"id": 1, "name": "Baby Lotion", "price": 500.00},
+#     {"id": 2, "name": "Gents Perfume", "price": 999.00},
+#     {"id": 4, "name": "Napa", "price": 50.00}
+
 #   ]
 # }
+
 
 
 # http://127.0.0.1:8000/place_order/  [POST]
@@ -33,19 +36,24 @@ urlpatterns = [
 #     {"phone":"3424234234"},
 #     {"email": "test@gmail.com"},
 #     {"address": "testaddress"},
-#     {"products": [
+#     {    "products": [
 #         {
 #             "id": 1,
-#             "name": "Napa",
-#             "price": 10
+#             "name": "Baby Lotion",
+#             "price": 500.0
 #         },
 #         {
 #             "id": 2,
-#             "name": "Lipstick",
-#             "price": 20
+#             "name": "Gents Perfume",
+#             "price": 999.0
+#         },
+#         {
+#             "id": 4,
+#             "name": "Napa",
+#             "price": 50.0
 #         }
 #     ]},
-#     {"total_price": 30},
+#     {"total_price": 1549.0},
 #     {"payment_type": "bkash"},
 #     {"transactions_id": "1234frggrerg"}
   
@@ -53,6 +61,18 @@ urlpatterns = [
 # }
 
 
-# http://127.0.0.1:8000/search/  [GET]
 
-"napa"
+# searching
+# http://127.0.0.1:8000/search/?search=Napa [GET]
+
+# Params:
+# Key: search parameters
+# Value: napa
+
+
+# filtering
+# http://127.0.0.1:8000/filter/?category=4 [POST]
+
+# Params:
+# Key: category
+# Value: 4

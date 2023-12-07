@@ -1,11 +1,15 @@
 from rest_framework import serializers
-from .models import ProductList, PlaceOrder, Transaction, PlaceOrder_Data
+from .models import ProductList, PlaceOrder, Transaction, PlaceOrder_Data, Customer
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductList
         fields = '__all__'
 
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = '__all__'
 
 
 class TransactionSerializer(serializers.ModelSerializer):
