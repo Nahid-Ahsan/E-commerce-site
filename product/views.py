@@ -11,7 +11,9 @@ class ProductListAPIView(generics.ListAPIView):
     queryset = ProductList.objects.all()
     serializer_class = ProductSerializer
 
-
+class CategoryAPIView(generics.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 class OrderCreateAPIView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):

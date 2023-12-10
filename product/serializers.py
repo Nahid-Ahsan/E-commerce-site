@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import ProductList, PlaceOrder, Transaction, PlaceOrder_Data, Customer
+from .models import ProductList, PlaceOrder, Transaction, PlaceOrder_Data, Customer, Category
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
